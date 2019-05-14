@@ -1,0 +1,10 @@
+---
+# tasks file for ansible-role-win-regedit
+- name: Edit registry
+  win_regedit:
+    path: "{{ item.path }}"
+    name: "{{ item.name }}"
+    data: "{{ item.data }}"
+    type: "{{ item.type }}"
+    state: "{{ item.state }}"
+  with_items: "{{ win_registry_items }}"
